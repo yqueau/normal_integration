@@ -13,8 +13,11 @@ Features:
 ## References
 
 [1] "Variational Methods for Normal Integration", Quéau et al., Submitted to JMIV. 2017.
+
 [2] "Integration of a Normal Field without Boundary Condition", Durou and Courteille, ICCVW 2007
+
 [3] "Integrating the Normal Field of a Surface in the Presence of Discontinuities", Durou et al., EMMCVPR2009
+
 [4] "Edge-Preserving Integration of a Normal Field: Weighted Least Squares and L1 Approaches", Quéau and Durou, SSVM2015 
 
 Please cite [1] if using the provided codes for your own research. The quadratic method is an extension of the method in [2]. The non-convex integrator was introduced in [3], and the TV one in [4]. 
