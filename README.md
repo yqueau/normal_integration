@@ -3,18 +3,23 @@ Matlab codes for integration of normals over a non-rectangular 2D grid, without 
 
 ## Introduction
 
-In many computer vision applications (e.g. photometric stereo, shape-from-shading, shape-from-polarization or deflectometry), one estimates the local surface orientation (i.e., normals) in each pixel. A subsequent step consists in integrating these into a depth map. These Matlab codes implement the variational normal integration methods discussed in [1].  
+In many computer vision applications (e.g. photometric stereo, shape-from-shading, shape-from-polarization or deflectometry), one estimates the local surface orientation (i.e., normals) in each pixel. A subsequent step consists in integrating these into a depth map. These Matlab codes implement the variational normal integration methods discussed in [1]. This journal paper summarizes research previously presented in the conference papers [2,3,4].  
 
 Features:
 - A fast (almost  n log(n)) quadratic integration over a non-rectangular domain, without boundary condition, without parameter to tune.
 - Various non-quadratic, discontinuity-preserving integrators (slower than quadratic and a parameter needs to be tuned).
 - Possibility to include a depth prior in each method (see Sec. 2.4 in [1])  
 
-[1] "Variational Methods for Normal Integration", Yvain Quéau et al., Submitted to JMIV. 2017. 
+## References
 
-Please cite the above work if using the provided code for your own research. 
+[1] "Variational Methods for Normal Integration", Quéau et al., Submitted to JMIV. 2017.
+[2] "Integration of a Normal Field without Boundary Condition", Durou and Courteille, ICCVW 2007
+[3] "Integrating the Normal Field of a Surface in the Presence of Discontinuities", Durou et al., EMMCVPR2009
+[4] "Edge-Preserving Integration of a Normal Field: Weighted Least Squares and L1 Approaches", Quéau and Durou, SSVM2015 
 
-Author: Yvain Quéau, Technical University Munich, yvain.queau@tum.de
+Please cite [1] if using the provided codes for your own research. The quadratic method is an extension of the method in [2]. The non-convex integrator was introduced in [3], and the TV one in [4]. 
+
+Author of codes: Yvain Quéau, Technical University Munich, yvain.queau@tum.de
 
 
 ## Contents
