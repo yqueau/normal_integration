@@ -34,7 +34,7 @@ The main fuctions for the new variational methods in [1] are in the Toolbox/ fol
 - `anisotropic_diffusion_integration.m`: function for anisotropic diffusion integration over a non-rectangular grid (Sec. 4.3 in [1])
 - `mumford_shah_integration.m`: function for Mulford-Sjaj integration over a non-rectangular grid (Sec. 4.4 in [1])
 
-Poisson solvers discussed in [2] can also be found in the Survey/ folder:
+The four Poisson solvers discussed in [2] are also provided:
 - `horn_brooks.m`: implementation of the modified Horn and Brook's scheme (Jacobi iterations) for Poisson integration over a non-rectangular grid. Needs no boundary condition, but very slow (Sec. 3.2 in [2]).
 - `FFT_Poisson.m`: implementation of the FFT integrator of Frankot and Chellappa. Super fast, but requires a rectangular grid and periodic boundary condition (Sec. 3.3 in [2])
 - `DCT_Poisson`: implementation of the DCT integrator of Simchony et al. Still very fast, and requires no boundary condition, but domain must be rectangular (Sec. 3.4 in [2])
@@ -61,8 +61,6 @@ If CMG it is not installed, set the "precond" parameter to "none". This will be 
 - Discontinuity-preserving methods and Horn and Brook's one require a few other settings, see demo 1 and 3 for details. 
 
 ## References
-
-Please cite [1] if using the codes in the Toolbox/ folder for your own research, and [2] if using those in the Survey/ folder. 
 
 [1] "Variational Methods for Normal Integration", Quéau et al., Submitted to JMIV. 2017.
 
