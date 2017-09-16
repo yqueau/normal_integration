@@ -15,15 +15,12 @@ Features:
 
 The following demo files are provided: 
 
-- `demo_1_domain.m` : demo of fast quadratic integration over a non-rectangular grid. Script shows that when explicitly using the domain, integration is faster and way more accurate (no bias on the boundary of the object due to discontinuity).
+- `demo_1_survey.m` : demo of the methods presented in Sec. 3 of the survey paper [2]. This shows the importance of boundary conditions, hence the superiority of DCT over DST/FFT for solving the Poisson equation. However, it handles only a rectangular domain, hence Horn and Brook's method is much more accurate for non-rectangular domains. Still, the latter is very slow, hence the quadratic method proposed in [1] is much better: it handles free boundary and free-form domain, while being almost as fast as DCT.   
 
-- `demo_2_CPU_eval.m` : code for comparison of asymptotic complexity of the quadratic approach with DCT and Sylvester approaches. 
+- `demo_2_domain.m` : demo of fast quadratic integration over a non-rectangular grid. Script shows that when explicitly using the domain, integration is faster and way more accurate (no bias on the boundary of the object due to discontinuity).
 
-- `demo_3_noise_eval.m` : code for comparison of accuracy of the quadratic approach with DCT and Sylvester approaches. 
+- `demo_3_discontinuities.m` : demo of the four discontinuity-preserving methods. They can be used if the domain of integration has not been pre-calculated. 
 
-- `demo_4_discontinuities.m` : demo of the four discontinuity-preserving methods.
-
-- `demo_5_survey.m` : demo of the methods presented in Sec. 3 of the survey paper [2]
 
 
 ## Contents
@@ -61,7 +58,7 @@ If CMG it is not installed, set the "precond" parameter to "none". This will be 
  * mask: binary mask of the area of interest (matrix)
  * lambda: field of regularization weights for depth prior (matrix)
  * z0: depth prior (matrix)
-- Discontinuity-preserving methods require a few other settings, see demo 4 for details. 
+- Discontinuity-preserving methods and Horn and Brook's one require a few other settings, see demo 1 and 3 for details. 
 
 ## References
 
@@ -78,15 +75,6 @@ These methods build upon three previous conference papers. The new quadratic met
 [4] "Integrating the Normal Field of a Surface in the Presence of Discontinuities", Durou et al., EMMCVPR2009
 
 [5] "Edge-Preserving Integration of a Normal Field: Weighted Least Squares and L1 Approaches", Quéau and Durou, SSVM2015 
-
-For the sake of comparison in demos 2 and 3, we include in the Toolbox/ folder the code of the surface generator and Sylvester solver from Harker and O'Leary. See their webpage for further info:
-
-https://fr.mathworks.com/matlabcentral/fileexchange/43149-surface-reconstruction-from-gradient-fields--grad2surf-version-1-0  
-
-and their paper:
-
-[6] "Regularized Reconstruction of a Surface from its Measured Gradient Field", Harker and O'Leary, JMIV 2015
-
 
 
 

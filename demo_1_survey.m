@@ -2,7 +2,6 @@ clear
 close all
 
 addpath('Toolbox/');
-addpath('Survey/');
 
 % Tested methods
 test_FFT = 1; % FFT integrator (periodic BC)
