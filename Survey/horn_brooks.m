@@ -17,6 +17,7 @@ function [u,ma,tab_rmse] = horn_brooks(p,q,omega,it_max,tol,trace,u0,ground_trut
 		save_rmse=1;
 	end
 	
+	if (~exist('tol','var')|isempty(tol)) tol=1e-3; end;
 	if (~exist('u0','var')|isempty(u0)) u0=zeros(size(p)); end;
 	if (~exist('trace','var')|isempty(trace)) trace=0; end;
 	if (~exist('it_max','var')|isempty(it_max)) it_max=100*size(p,1); end;
@@ -117,6 +118,7 @@ function [u,ma,tab_rmse] = horn_brooks(p,q,omega,it_max,tol,trace,u0,ground_trut
 
 		rel_res = norm(u_prec(imask)-u(imask))/norm(u_prec(imask));
 		if( rel_res < tol )
+			disp('Convergence reached')
 			break;
 		end
 		

@@ -21,7 +21,9 @@ The following demo files are provided:
 
 - `demo_3_noise_eval.m` : code for comparison of accuracy of the quadratic approach with DCT and Sylvester approaches. 
 
-- `demo_4_discontinuities.m` : demo of the four discontinuity-preserving methods. 
+- `demo_4_discontinuities.m` : demo of the four discontinuity-preserving methods.
+
+- `demo_5_survey.m` : demo of the methods presented in Sec. 3 of the survey paper [2]
 
 
 ## Contents
@@ -37,8 +39,9 @@ The main fuctions for the new variational methods in [1] are in the Toolbox/ fol
 
 Poisson solvers discussed in [2] can also be found in the Survey/ folder:
 - `horn_brooks.m`: implementation of the modified Horn and Brook's scheme (Jacobi iterations) for Poisson integration over a non-rectangular grid. Needs no boundary condition, but very slow (Sec. 3.2 in [2]).
-- `frankot_chellappa.m`: implementation of the FFT integrator of Frankot and Chellappa. Super fast, but requires a rectangular grid and periodic boundary condition (Sec. 3.3 in [2])
-- `simchony.m`: implementation of the DCT integrator of Simchony et al. Still very fast, and requires no boundary condition, but domain must be rectangular (Sec. 3.4 in [2]) 
+- `FFT_Poisson.m`: implementation of the FFT integrator of Frankot and Chellappa. Super fast, but requires a rectangular grid and periodic boundary condition (Sec. 3.3 in [2])
+- `DCT_Poisson`: implementation of the DCT integrator of Simchony et al. Still very fast, and requires no boundary condition, but domain must be rectangular (Sec. 3.4 in [2])
+- `DST_Poisson`: implementation of the DST integrator of Simchony et al. Still very fast, handles Dirichlet boundary condition. Domain must be rectangular (Sec. 3.4 in [2]) 
 
 
 ## Dependencies
