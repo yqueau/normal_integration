@@ -115,10 +115,10 @@ function [z,tab_nrj,tab_rmse] = phi2_integration(p,q,mask,lambda,z0,beta,gamma,m
 		Dz_minus_g3 = bsxfun(@rdivide,Dz_minus_g3,norme_Dz_minus_g3.^2);
 		Dz_minus_g4 = bsxfun(@rdivide,Dz_minus_g4,norme_Dz_minus_g4.^2);
 		% Make it a matrix
-		Dz_minus_g_mat = sparse2(II,JJ,Dz_minus_g(:));
-		Dz_minus_g_mat2 = sparse2(II,JJ,Dz_minus_g2(:));
-		Dz_minus_g_mat3 = sparse2(II,JJ,Dz_minus_g3(:));
-		Dz_minus_g_mat4 = sparse2(II,JJ,Dz_minus_g4(:));
+		Dz_minus_g_mat = sparse(II,JJ,Dz_minus_g(:));
+		Dz_minus_g_mat2 = sparse(II,JJ,Dz_minus_g2(:));
+		Dz_minus_g_mat3 = sparse(II,JJ,Dz_minus_g3(:));
+		Dz_minus_g_mat4 = sparse(II,JJ,Dz_minus_g4(:));
 		% Get all terms inside the sum
 		grad_f_curr = 0.5*sum(gamma^2*Dt*Dz_minus_g_mat+gamma^2*Dt2*Dz_minus_g_mat2+gamma^2*Dt3*Dz_minus_g_mat3+gamma^2*Dt4*Dz_minus_g_mat4,2);
 
