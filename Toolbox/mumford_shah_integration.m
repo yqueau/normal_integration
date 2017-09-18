@@ -87,10 +87,10 @@ function [z,wup,wum,wvp,wvm,tab_nrj,tab_rmse] = mumford_shah_integration(p,q,mas
 		Avp = 0.5*(mu*Evp2_mat+epsilon*DvptDvp+(1/(4*epsilon))*speye(npix));
 		Aum = 0.5*(mu*Eum2_mat+epsilon*DumtDum+(1/(4*epsilon))*speye(npix));
 		Avm = 0.5*(mu*Evm2_mat+epsilon*DvmtDvm+(1/(4*epsilon))*speye(npix));
-		[wup,~] = pcg(Aup,bw,1e-4,100,[],[],wup);
-		[wum,~] = pcg(Aum,bw,1e-4,100,[],[],wum);
-		[wvp,~] = pcg(Avp,bw,1e-4,100,[],[],wvp);
-		[wvm,~] = pcg(Avm,bw,1e-4,100,[],[],wvm);
+		[wup,fl] = pcg(Aup,bw,1e-4,100,[],[],wup);
+		[wum,fl] = pcg(Aum,bw,1e-4,100,[],[],wum);
+		[wvp,fl] = pcg(Avp,bw,1e-4,100,[],[],wvp);
+		[wvm,fl] = pcg(Avm,bw,1e-4,100,[],[],wvm);
 		Wup2_mat = spdiags(wup.^2,0,npix,npix);
 		Wum2_mat = spdiags(wum.^2,0,npix,npix);
 		Wvp2_mat = spdiags(wvp.^2,0,npix,npix);
@@ -100,7 +100,7 @@ function [z,wup,wum,wvp,wvm,tab_nrj,tab_rmse] = mumford_shah_integration(p,q,mas
 
 		A = 0.5*mu*(Dup'*Wup2_mat*Dup+Dum'*Wum2_mat*Dum+Dvp'*Wvp2_mat*Dvp+Dvm'*Wvm2_mat*Dvm)+Lambda_two; % Matrix of the system
 		b =  0.5*mu*(Dup'*Wup2_mat+Dum'*Wum2_mat)*p(imask)+0.5*mu*(Dvp'*Wvp2_mat+Dvm'*Wvm2_mat)*q(imask)+Lambda_two*z0(imask);		
-		[z(imask),~] = pcg(A,b,1e-4,100,[],[],z(imask));
+		[z(imask),fl] = pcg(A,b,1e-4,100,[],[],z(imask));
 		
 
 
