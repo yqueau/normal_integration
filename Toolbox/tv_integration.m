@@ -115,7 +115,7 @@ function [z,tab_nrj,tab_rmse] = tv_integration(p,q,mask,lambda,z0,alpha,maxit,to
 		qmp = q(imask)+rmp2-bmp2;
 		qmm = q(imask)+rmm2-bmm2;
 		b = Lambda_two*z0(imask)+0.125*alpha*((Dup'*ppp+Dvp'*qpp)+(Dup'*ppm+Dvm'*qpm)+(Dum'*pmp+Dvp'*qmp)+(Dum'*pmm+Dvm'*qmm));
-		[z(imask),~] = pcg(A,b,1e-9,10,[],[],z(imask));
+		[z(imask),fl] = pcg(A,b,1e-9,10,[],[],z(imask));
 
 		% r update
 		spp1 = Dup*z(imask)-p(imask)+bpp1; 
