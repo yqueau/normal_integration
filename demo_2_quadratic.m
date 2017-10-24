@@ -28,7 +28,7 @@ u(mask==0) = NaN;
 lambda = 1e-6*ones(size(p)); % Uniform field of weights (nrows x ncols)
 z0 = zeros(size(p)); % Null depth prior (nrows x ncols)
 solver = 'pcg'; % Solver ('pcg' means conjugate gradient, 'direct' means backslash i.e. sparse Cholesky) 
-precond = 'CMG'; % Preconditioner ('none' means no preconditioning, 'CMG' means conjugate combinatorial multigrid -- must be installed, see README)
+precond = 'CMG'; % Preconditioner ('none' means no preconditioning, 'ichol' means incomplete Cholesky, 'CMG' means conjugate combinatorial multigrid -- the latter is fastest, but it need being installed, see README)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Integrate without mask (full rectangular domain)

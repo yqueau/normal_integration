@@ -13,7 +13,7 @@ function z = smooth_integration(p,q,mask,lambda,z0,solver,precond)
 	if (~exist('lambda','var')|isempty(lambda)) lambda = 1e-9*mask; end;
 	if (~exist('z0','var')|isempty(z0)) z0 = zeros(nrows,ncols); end;
 	if (~exist('solver','var')|isempty(solver)) solver = 'pcg'; end;
-	if (~exist('precond','var')|isempty(precond)) precond = 'none'; end;
+	if (~exist('precond','var')|isempty(precond)) precond = 'ichol'; end;
 
 	% If lambda is a scalar, make it a matrix
 	if(size(lambda,1)==1)
@@ -35,9 +35,14 @@ function z = smooth_integration(p,q,mask,lambda,z0,solver,precond)
 
 	% Preconditioning
 	if(strcmp(precond,'none'))
-		precond = [];
+		precondL = [];
+		precondR = [];
 	elseif(strcmp(precond,'CMG'))
-		precond = cmg_sdd(A);
+		precondL = cmg_sdd(A);
+		precondR = [];
+	elseif(strcmp(precond,'ichol')) % Modified incomplete cholesky advised in [Bahr et al., CVM 2017]
+		precondL = ichol(A,struct('type','ict','droptol',1e-03,'michol','on'));	
+		precondR = precondL';	
 	end
 
 	% Resolution
@@ -45,7 +50,7 @@ function z = smooth_integration(p,q,mask,lambda,z0,solver,precond)
 	if(strcmp(solver,'direct')) % Calls cholesky
 		z(imask) = A\b;
 	elseif(strcmp(solver,'pcg')) % Calls CG
-		z(imask) = pcg(A,b,1e-4,1000,precond,[],z(imask));
+		z(imask) = pcg(A,b,1e-4,1000,precondL,precondR,z(imask));
 	end
 
 	% Put NaNs outside the mask
