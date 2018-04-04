@@ -63,9 +63,9 @@ If CMG it is not installed, set the "precond" parameter to "none" (no preconditi
 
 ## References
 
-[1] "Variational Methods for Normal Integration", Quéau et al., To appear in JMIV. 2017. (Arxiv preprint: https://arxiv.org/abs/1709.05965)
+[1] "Variational Methods for Normal Integration", Quéau et al., Journal of Mathematical Imaging and Vision 60(4), pp 609--632, 2018. (Arxiv preprint: https://arxiv.org/abs/1709.05965)
 
-[2] "Normal Integration: a Survey", Quéau et al., Submitted to JMIV. 2017. (Arxiv preprint: https://arxiv.org/abs/1709.05940)
+[2] "Normal Integration: a Survey", Quéau et al., Journal of Mathematical Imaging and Vision 60(4), pp 576--593, 2018. (Arxiv preprint: https://arxiv.org/abs/1709.05940)
 
 These methods build upon three previous conference papers. The new quadratic method is an extension of the method in [3]. The non-convex integrator was introduced in [4], and the TV one in [5]. 
 
