@@ -67,7 +67,7 @@ function [z,tab_nrj,tab_rmse] = anisotropic_diffusion_integration(p,q,mask,lambd
 	for k = 1:maxit
 		
 		% z update
-		A = Lambda_two+(Dup'*(App_mat.^2)*Dup)+(Dvp'*(Bpp_mat.^2)*Dvp)+(Dup'*(Apm_mat.^2)*Dup)+(Dvm'*(Bpm_mat.^2)*Dvm)+(Dum'*(Amp_mat.^2)*Dum)+(Dvp'*(Bmp_mat.^2)*Dvp)+(Dum'*(Amm_mat.^2)*Dup)+(Dvm'*(Bmm_mat.^2)*Dvp);
+		A = Lambda_two+(Dup'*(App_mat.^2)*Dup)+(Dvp'*(Bpp_mat.^2)*Dvp)+(Dup'*(Apm_mat.^2)*Dup)+(Dvm'*(Bpm_mat.^2)*Dvm)+(Dum'*(Amp_mat.^2)*Dum)+(Dvp'*(Bmp_mat.^2)*Dvp)+(Dum'*(Amm_mat.^2)*Dum)+(Dvm'*(Bmm_mat.^2)*Dvm);
 		b = Lambda_two*z0(imask)+(Dup'*(App_mat.^2)*p(imask))+(Dvp'*(Bpp_mat.^2)*q(imask))+(Dup'*(Apm_mat.^2)*p(imask))+(Dvm'*(Bpm_mat.^2)*q(imask))+(Dum'*(Amp_mat.^2)*p(imask))+(Dvp'*(Bmp_mat.^2)*q(imask))+(Dum'*(Amm_mat.^2)*p(imask))+(Dvm'*(Bmm_mat.^2)*q(imask));
 		%~ precond = cmg_sdd(A);
 		%~ [z(imask)] = pcg(A,b,1e-4,100,precond,[],z(imask));
